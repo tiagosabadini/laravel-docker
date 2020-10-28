@@ -7,6 +7,10 @@ steps:
     name: 'gcr.io/cloud-builders/docker'
     args: ['exec','-u','root','-t','app','chown','-R','www-data:www-data','/var/www']
 
+  - id: "Chown in /var/www/.docker/entrypoint.sh"
+    name: 'gcr.io/cloud-builders/docker'
+    args: ['exec','-u','root','-t','app','chown','www-data:www-data','/var/www/.docker/entrypoint.sh']
+
   - id: "Rodando composer install"
     name: 'gcr.io/cloud-builders/docker'
     args: ['exec', '-t', 'app', 'composer', 'install']
