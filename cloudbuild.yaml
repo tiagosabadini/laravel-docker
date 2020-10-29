@@ -13,7 +13,7 @@ steps:
 
   - id: "Rodando composer install"
     name: 'gcr.io/cloud-builders/docker'
-    args: ['exec', '-t', 'app', 'composer', 'install']
+    args: ['exec', '-t', 'app', 'composer', 'install', '--no-scripts']
 
 #  - id: "Copiando .env.example"
 #    name: 'gcr.io/cloud-builders/docker'
@@ -27,6 +27,6 @@ steps:
     name: 'gcr.io/cloud-builders/docker'
     args: ['exec', '-t', 'app', 'php', '/var/www/artisan', 'migrate']
 
-  - id: "Rodando phpunit"
-    name: 'gcr.io/cloud-builders/docker'
-    args: ['exec', '-t', 'app', 'php', '/var/www/vendor/bin/phpunit', '-c', '/var/www/phpunit.xml']
+ # - id: "Rodando phpunit"
+ #   name: 'gcr.io/cloud-builders/docker'
+ #   args: ['exec', '-t', 'app', 'php', '/var/www/vendor/bin/phpunit', '-c', '/var/www/phpunit.xml']
