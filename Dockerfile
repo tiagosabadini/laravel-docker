@@ -23,9 +23,9 @@ RUN rm -Rf /var/www/html
 #COPY . /var/www
 RUN ln -s public html
 
-RUN chown www-data:www-data /var/www/.docker
-RUN usermod -u 1000 www-data
-RUN www-data
+#RUN chown www-data:www-data /var/www/.docker
+#RUN usermod -u 1000 www-data
+#RUN www-data
 
 
 EXPOSE 9000

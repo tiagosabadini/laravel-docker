@@ -1,6 +1,10 @@
 steps:
-  - id: "Rodando docker-compose"
+  - id: "Permitindo rodar o entrypoint"
     name: 'gcr.io/$PROJECT_ID/docker-compose:1.25.5'
+    args: ['chmod', '+x', '.docker/entrypoint.sh']
+
+  - id: "Rodando docker-compose"
+    name: 'gcr.io/cloud-builders/docker'
     args: ['-f', 'docker-compose.cloudbuild.yaml', 'up', '-d']
 
   - id: "Chown in /var/www"
